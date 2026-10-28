@@ -22,7 +22,10 @@ export const sendOrderEmails = async (order) => {
 
     const senderEmail = process.env.SENDER_EMAIL || process.env.SMTP_USER || 'no-reply@farsancatering.com';
     const businessNotificationEmail =
-      process.env.BUSINESS_NOTIFICATION_EMAIL || settings.notificationEmail || settings.email || 'orders@farsancatering.com';
+      process.env.BUSINESS_NOTIFICATION_EMAIL ||
+      (settings.notificationEmail && !settings.notificationEmail.includes('shreejifarsan.com')
+        ? settings.notificationEmail
+        : 'farsan-catering@yopmail.com');
 
     // If no real SMTP transporter is configured, simulate successfully and log
     if (!transporter) {
@@ -88,7 +91,10 @@ export const sendCateringEmails = async (enquiry) => {
 
     const senderEmail = process.env.SENDER_EMAIL || process.env.SMTP_USER || 'no-reply@farsancatering.com';
     const businessNotificationEmail =
-      process.env.BUSINESS_NOTIFICATION_EMAIL || settings.notificationEmail || settings.email || 'catering@farsancatering.com';
+      process.env.BUSINESS_NOTIFICATION_EMAIL ||
+      (settings.notificationEmail && !settings.notificationEmail.includes('shreejifarsan.com')
+        ? settings.notificationEmail
+        : 'farsan-catering@yopmail.com');
 
     if (!transporter) {
       console.log(`[Email Service Simulation] Catering Enquiry from ${enquiry.customer.name}`);
