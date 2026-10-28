@@ -20,7 +20,31 @@ export const dispatchEmail = async ({ to, subject, html, settings }) => {
   const fromName = settings?.businessName || 'Shreeji Homemade Farsan';
   const senderEmail = process.env.SENDER_EMAIL || process.env.SMTP_USER || 'no-reply@farsancatering.com';
 
-  // 1. Resend API (HTTPS Port 443)
+  // 1. Brevo (Sendinblue) API (HTTPS Port 443 - Sends to ANY customer without domain verification!)
+  if (process.env.BREVO_API_KEY) {
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'api-key': process.env.BREVO_API_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sender: { name: fromName, email: senderEmail },
+        to: (Array.isArray(to) ? to : [to]).map((email) => ({ email })),
+        subject,
+        htmlContent: html,
+      }),
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(`Brevo API Error (${response.status}): ${data.message || JSON.stringify(data)}`);
+    }
+    console.log(`[Email Service] Delivered via Brevo HTTPS API to ${to} (ID: ${data.messageId})`);
+    return { success: true, provider: 'brevo', messageId: data.messageId };
+  }
+
+  // 2. Resend API (HTTPS Port 443)
   if (process.env.RESEND_API_KEY) {
     const resendFrom = process.env.RESEND_FROM || `${fromName} <onboarding@resend.dev>`;
     const targetEmails = Array.isArray(to) ? to : [to];
@@ -69,30 +93,6 @@ export const dispatchEmail = async ({ to, subject, html, settings }) => {
     }
     console.log(`[Email Service] Delivered via Resend HTTPS API (ID: ${data.id})`);
     return { success: true, provider: 'resend', id: data.id };
-  }
-
-  // 2. Brevo (Sendinblue) API (HTTPS Port 443)
-  if (process.env.BREVO_API_KEY) {
-    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'api-key': process.env.BREVO_API_KEY,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        sender: { name: fromName, email: senderEmail },
-        to: (Array.isArray(to) ? to : [to]).map((email) => ({ email })),
-        subject,
-        htmlContent: html,
-      }),
-    });
-
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(`Brevo API Error (${response.status}): ${data.message || JSON.stringify(data)}`);
-    }
-    console.log(`[Email Service] Delivered via Brevo HTTPS API to ${to} (ID: ${data.messageId})`);
-    return { success: true, provider: 'brevo', messageId: data.messageId };
   }
 
   // 3. Nodemailer SMTP (Localhost or Paid Cloud Server)
