@@ -23,7 +23,9 @@ export const dispatchEmail = async ({ to, subject, html, settings }) => {
   // 1. Resend API (HTTPS Port 443)
   if (process.env.RESEND_API_KEY) {
     const resendFrom = process.env.RESEND_FROM || `${fromName} <onboarding@resend.dev>`;
-    const response = await fetch('https://api.resend.com/emails', {
+    const targetEmails = Array.isArray(to) ? to : [to];
+
+    let response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
@@ -31,17 +33,41 @@ export const dispatchEmail = async ({ to, subject, html, settings }) => {
       },
       body: JSON.stringify({
         from: resendFrom,
-        to: Array.isArray(to) ? to : [to],
+        to: targetEmails,
         subject,
         html,
       }),
     });
 
-    const data = await response.json();
+    let data = await response.json();
+
+    // If Resend test restriction triggered (unverified domain allows only account owner email)
+    if (!response.ok && response.status === 403 && data.message?.includes('only send testing emails')) {
+      const ownerEmail = process.env.RESEND_OWNER_EMAIL || process.env.SMTP_USER || 'bhavesh.45.mallah@gmail.com';
+      console.warn(`[Email Service] Resend test mode: re-routing to account owner (${ownerEmail}) because recipient ${targetEmails.join(', ')} is unverified`);
+
+      response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: resendFrom,
+          to: [ownerEmail],
+          subject: `[Order Alert for ${targetEmails.join(', ')}] ${subject}`,
+          html: `<div style="background:#fff3cd;padding:12px;border-left:4px solid #ffc107;margin-bottom:16px;font-family:sans-serif;font-size:13px;color:#856404;">
+            <strong>⚠️ Resend Test Mode Notice:</strong> Intended recipient was <code>${targetEmails.join(', ')}</code>. Because a custom domain is not yet verified at resend.com, Resend routed this order to your account email (${ownerEmail}).
+          </div>` + html,
+        }),
+      });
+      data = await response.json();
+    }
+
     if (!response.ok) {
       throw new Error(`Resend API Error (${response.status}): ${data.message || JSON.stringify(data)}`);
     }
-    console.log(`[Email Service] Delivered via Resend HTTPS API to ${to} (ID: ${data.id})`);
+    console.log(`[Email Service] Delivered via Resend HTTPS API (ID: ${data.id})`);
     return { success: true, provider: 'resend', id: data.id };
   }
 
