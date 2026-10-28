@@ -14,6 +14,9 @@ import { notFoundHandler, errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
 
+// Trust reverse proxy headers (Render, Heroku, Cloudflare, etc.)
+app.set('trust proxy', 1);
+
 // Security HTTP headers
 app.use(
   helmet({
@@ -35,6 +38,7 @@ const limiter = rateLimit({
   max: 300,
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { xForwardedForHeader: false },
   message: {
     success: false,
     message: 'Too many requests from this IP. Please try again after 15 minutes.',
