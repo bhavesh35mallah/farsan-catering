@@ -132,46 +132,37 @@ const HomeHeroSlider = () => {
             </div>
 
             {/* Slide Content */}
-            <div className="relative z-10 max-w-[1720px] mx-auto h-full px-6 sm:px-12 lg:px-16 flex flex-col justify-center">
-              <div className="max-w-3xl space-y-4 sm:space-y-6">
+            <div className="relative z-10 max-w-[1720px] mx-auto h-full px-6 sm:px-12 lg:px-16 flex flex-col justify-center items-center text-center">
+              <div className="max-w-4xl space-y-6 animate-fade-in-up">
                 {/* Top Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-saffron-500/20 backdrop-blur-md border border-saffron-400/40 text-amber-300 text-xs sm:text-sm font-extrabold shadow-sm">
-                  <Sparkles className="w-4 h-4 text-amber-400 animate-spin-slow shrink-0" />
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-bold">
+                  <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
                   <span>{isGujarati ? slide.badgeGu : slide.badgeEn}</span>
                 </div>
 
                 {/* Main Heading */}
-                <h2 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-[1.2] tracking-tight drop-shadow-md">
+                <h2 className="text-3xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight drop-shadow-lg">
                   {isGujarati ? slide.titleGu : slide.titleEn}
                 </h2>
 
                 {/* Description */}
-                <p className="text-xs sm:text-base lg:text-lg text-stone-200 line-clamp-2 sm:line-clamp-none leading-relaxed drop-shadow-sm max-w-xl">
+                <p className="text-sm sm:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md line-clamp-3 sm:line-clamp-none">
                   {isGujarati ? slide.descGu : slide.descEn}
                 </p>
 
-                {/* Price / Highlight Pill */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-bold">
-                  <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                  <span className="font-serif font-extrabold text-amber-300">
-                    {isGujarati ? slide.highlightGu : slide.highlightEn}
-                  </span>
-                </div>
-
                 {/* Action Buttons */}
-                <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+                <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                   <Link
                     to={slide.ctaLink}
-                    className="px-6 sm:px-8 py-3.5 rounded-2xl bg-gradient-to-r from-saffron-500 via-amber-500 to-saffron-600 hover:from-saffron-600 hover:to-amber-600 text-stone-950 font-extrabold text-sm sm:text-base shadow-xl hover:shadow-saffron-500/40 transition active:scale-95 flex items-center gap-2.5 glow-saffron"
+                    className="px-6 sm:px-10 py-3 sm:py-4 rounded-xl bg-saffron-600 hover:bg-saffron-700 text-white font-bold text-xs sm:text-base shadow-lg transition-all active:scale-95 flex items-center gap-2 sm:gap-3"
                   >
-                    <ShoppingBag className="w-5 h-5 text-stone-950" />
+                    <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span>{isGujarati ? slide.ctaTextGu : slide.ctaTextEn}</span>
-                    <ArrowRight className="w-4 h-4 text-stone-950" />
                   </Link>
 
                   <Link
                     to={slide.secondaryLink}
-                    className="px-5 sm:px-7 py-3.5 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 text-white font-extrabold text-sm sm:text-base transition active:scale-95 flex items-center gap-2"
+                    className="px-6 sm:px-10 py-3 sm:py-4 rounded-xl bg-white text-stone-900 hover:bg-stone-50 font-bold text-xs sm:text-base shadow-lg transition-all active:scale-95"
                   >
                     <span>{isGujarati ? slide.secondaryTextGu : slide.secondaryTextEn}</span>
                   </Link>

@@ -113,6 +113,34 @@
   }
 }
 
+/* Custom Gradients */
+.gradient-saffron {
+  background: linear-gradient(135deg, #fb9753 0%, #e5631b 100%);
+}
+
+.gradient-kothmir {
+  background: linear-gradient(135deg, #5fb37e 0%, #38965c 100%);
+}
+
+.gradient-cream {
+  background: linear-gradient(to bottom, #ffffff 0%, #fffbf2 100%);
+}
+
+.text-gradient-saffron {
+  background: linear-gradient(135deg, #e5631b 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Enhanced Shadows */
+.shadow-premium {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-glow-saffron {
+  box-shadow: 0 0 15px rgba(229, 99, 27, 0.1), 0 0 30px rgba(229, 99, 27, 0.05);
+}
+
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }

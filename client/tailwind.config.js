@@ -2,6 +2,14 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      'xs': '375px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       colors: {
         cream: {
@@ -52,9 +60,31 @@ export default {
         gujaratiBody: ['"Hind Vadodara"', '"Anek Gujarati"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        soft: '0 4px 20px -2px rgba(196, 77, 24, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
-        card: '0 8px 30px rgba(0, 0, 0, 0.05)',
-        hover: '0 14px 35px -4px rgba(196, 77, 24, 0.15), 0 8px 12px -2px rgba(0, 0, 0, 0.05)',
+        soft: '0 2px 15px rgba(0, 0, 0, 0.05)',
+        card: '0 10px 30px -5px rgba(0, 0, 0, 0.04)',
+        hover: '0 20px 40px -10px rgba(229, 99, 27, 0.12)',
+        'inner-light': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.03)',
+        saffron: '0 10px 20px -5px rgba(229, 99, 27, 0.2)',
+        kothmir: '0 10px 20px -5px rgba(56, 150, 92, 0.2)',
+      },
+      animation: {
+        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+        'float': 'float 3s ease-in-out infinite',
+        'pulse-soft': 'pulseSoft 2s infinite',
+      },
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        pulseSoft: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.8' },
+        },
       },
     },
   },

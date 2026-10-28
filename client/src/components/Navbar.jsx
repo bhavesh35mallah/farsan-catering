@@ -20,64 +20,64 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-cream-300 shadow-sm transition-all">
+    <header className="sticky top-0 z-40 bg-white border-b border-orange-100 transition-all duration-300">
       {/* Top Notice Bar */}
-      <div className="bg-gradient-to-r from-saffron-700 via-saffron-600 to-amber-600 text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-6 font-medium">
-        <div className="w-full max-w-[1720px] mx-auto flex items-center justify-between gap-2">
-          <div className="flex items-center gap-1.5 truncate">
-            <Sparkles className="w-3.5 h-3.5 text-amber-200 shrink-0 animate-pulse" />
-            <span className="truncate">
+      <div className="bg-orange-50 text-orange-800 text-[10px] sm:text-[11px] py-2 px-4 sm:px-8 font-bold uppercase tracking-widest border-b border-orange-100">
+        <div className="w-full max-w-[1720px] mx-auto flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 truncate">
+            <Sparkles className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+            <span className="truncate opacity-90">
               {t('topBanner')}
             </span>
           </div>
-          <div className="hidden md:flex items-center gap-4 text-xs text-saffron-100 shrink-0">
-            <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5" /> {settings.businessHours}
+          <div className="hidden md:flex items-center gap-6 shrink-0">
+            <span className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+              <Clock className="w-3.5 h-3.5 text-orange-500" /> {settings.businessHours}
             </span>
-            <span>•</span>
+            <div className="w-px h-3 bg-orange-200"></div>
             <a
               href={`tel:${settings.contactPhone}`}
-              className="hover:text-white transition flex items-center gap-1 font-bold"
+              className="hover:text-orange-600 transition-colors flex items-center gap-2"
             >
-              <Phone className="w-3.5 h-3.5" /> {t('callKitchen')}: {settings.contactPhone}
+              <Phone className="w-3.5 h-3.5 text-orange-500" /> {t('callKitchen')}: {settings.contactPhone}
             </a>
           </div>
         </div>
       </div>
 
       {/* Main Navbar */}
-      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="flex items-center justify-between h-16 sm:h-20 gap-2">
+      <div className="w-full max-w-[1720px] mx-auto px-3 sm:px-6 lg:px-10 xl:px-12">
+        <div className="flex items-center justify-between h-14 sm:h-20 gap-2">
           {/* Logo & Brand */}
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
-            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-saffron-700 via-saffron-600 to-amber-500 text-white flex items-center justify-center font-serif text-lg sm:text-xl font-bold shadow-md ring-2 ring-saffron-100 group-hover:scale-105 transition-transform duration-200">
-              શ્રી
+            <div className="relative">
+              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg bg-saffron-600 text-white flex items-center justify-center font-serif text-base sm:text-xl font-bold shadow-saffron transition-all duration-300">
+                <span className="relative z-10">{isGujarati ? 'શ્રી' : 'S'}</span>
+              </div>
             </div>
-            <div>
-              <div className="font-serif text-lg sm:text-2xl font-extrabold tracking-tight text-stone-900 group-hover:text-saffron-700 transition leading-tight">
-                {isGujarati ? 'શ્રીજી ઘરગથ્થુ' : 'Shreeji Homemade'}{' '}
-                <span className="text-saffron-600 font-normal">
-                  {isGujarati ? 'ફરસાણ' : 'Farsan'}
+            <div className="flex flex-col">
+              <div className="font-serif text-sm sm:text-2xl font-bold tracking-tight text-stone-900 group-hover:text-saffron-600 transition-colors duration-300 leading-none">
+                {isGujarati ? 'શ્રીજી ઘરગથ્થુ' : 'Shreeji Homemade'}
+              </div>
+              <div className="flex items-center gap-1 mt-0.5">
+                <span className="text-[8px] sm:text-[10px] uppercase tracking-wider text-orange-600 font-bold">
+                  {isGujarati ? 'અસલ સ્વાદ' : 'Authentic Farsan'}
                 </span>
               </div>
-              <p className="text-[10px] sm:text-[11px] uppercase tracking-wider text-kothmir-800 font-bold flex items-center gap-1">
-                <ChefHat className="w-3 h-3 text-kothmir-600 shrink-0" />
-                <span className="truncate">{isGujarati ? 'અસલ કાઠિયાવાડી-સુરતી રસોડું' : 'Pure Groundnut Oil & Cow Ghee'}</span>
-              </p>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.path}
                 className={({ isActive }) =>
-                  `px-3.5 py-2 rounded-xl text-sm font-bold transition-all duration-150 ${
+                  `px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
                     isActive
-                      ? 'text-saffron-700 bg-saffron-50 shadow-sm'
-                      : 'text-stone-700 hover:text-saffron-600 hover:bg-cream-100'
+                      ? 'text-saffron-700 bg-orange-50'
+                      : 'text-stone-600 hover:text-saffron-600 hover:bg-orange-50/50'
                   }`
                 }
               >
@@ -86,55 +86,46 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* Right Action Icons: Language Toggle + Catering Button + Cart */}
-          <div className="flex items-center gap-1.5 sm:gap-3">
-            {/* Language Switcher Pill */}
+          {/* Right Action Icons */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Language Switcher */}
             <button
               onClick={toggleLanguage}
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full border border-cream-300 bg-cream-50 hover:bg-cream-100 text-stone-800 text-xs font-bold transition shadow-sm active:scale-95"
-              title="Switch Language / ભાષા બદલો"
-              aria-label="Switch Language"
+              className="hidden sm:flex items-center gap-2 px-3 py-2 rounded-lg border border-orange-100 bg-white hover:bg-orange-50 text-stone-700 text-[10px] font-bold uppercase tracking-wider transition-all"
             >
-              <Globe className="w-3.5 h-3.5 text-saffron-600 shrink-0" />
-              <span className={language === 'gu' ? 'font-extrabold text-saffron-700' : 'text-stone-500'}>
-                ગુજરાતી
-              </span>
-              <span className="text-stone-300">/</span>
-              <span className={language === 'en' ? 'font-extrabold text-saffron-700' : 'text-stone-500'}>
-                EN
-              </span>
+              <Globe className="w-3.5 h-3.5 text-orange-500" />
+              <span>{language === 'gu' ? 'EN' : 'ગુજરાતી'}</span>
             </button>
-
-            {/* Catering CTA desktop */}
-            <Link
-              to="/catering"
-              className="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-kothmir-700 to-kothmir-800 text-white text-xs font-bold uppercase tracking-wider hover:from-kothmir-800 hover:to-kothmir-900 transition shadow-sm active:scale-95"
-            >
-              <ChefHat className="w-3.5 h-3.5 text-amber-300" />
-              <span>{t('bookCatering')}</span>
-            </Link>
 
             {/* Cart Trigger */}
             <button
               onClick={openCart}
-              className="relative p-2 sm:p-2.5 rounded-full bg-cream-100 hover:bg-saffron-50 text-stone-800 hover:text-saffron-600 transition flex items-center justify-center active:scale-95"
+              className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-orange-50 text-orange-700 hover:bg-orange-100 transition-all flex items-center justify-center active:scale-95 group"
               aria-label="Shopping Cart"
             >
-              <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
+              <ShoppingBag className="w-5 h-5 sm:w-6 h-6" />
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-saffron-600 text-white text-[10px] sm:text-[11px] font-extrabold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center shadow-md animate-pulse">
+                <span className="absolute -top-1.5 -right-1.5 bg-saffron-600 text-white text-[9px] sm:text-[10px] font-bold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center shadow-md border-2 border-white">
                   {totalItems}
                 </span>
               )}
             </button>
 
-            {/* Mobile menu hamburger toggle */}
+            {/* Catering CTA desktop */}
+            <Link
+              to="/catering"
+              className="hidden xl:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-saffron-600 text-white text-[10px] font-bold uppercase tracking-wider hover:bg-saffron-700 transition-all active:scale-95 shadow-sm"
+            >
+              <ChefHat className="w-4 h-4" />
+              <span>{t('bookCatering')}</span>
+            </Link>
+
+            {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl text-stone-700 hover:bg-cream-100 active:scale-95"
-              aria-label="Toggle Navigation Menu"
+              className="lg:hidden w-10 h-10 rounded-lg bg-orange-50 text-orange-700 hover:bg-orange-100 transition-all active:scale-95 flex items-center justify-center"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6 text-stone-900" /> : <Menu className="w-6 h-6 text-stone-900" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>

@@ -97,51 +97,51 @@ const HomePage = () => {
       ];
 
   return (
-    <div className={`space-y-12 sm:space-y-20 ${isGujarati ? 'font-gujarati' : ''}`}>
+    <div className={`space-y-16 sm:space-y-24 pb-20 ${isGujarati ? 'font-gujarati' : ''}`}>
       {/* 1. Amazing Swiper Hero Showcase Slider */}
-      <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-3 sm:pt-6">
+      <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-4 sm:pt-6">
         <HomeHeroSlider />
 
         {/* 3 Responsive Trust Guarantee Cards */}
-        <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-          <div className="bg-white rounded-2xl p-4 border border-cream-300 shadow-soft flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-6 h-6 text-saffron-700" />
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="bg-orange-50/50 rounded-xl p-4 border border-orange-100 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-saffron-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+              <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-extrabold text-sm text-stone-900">
-                {isGujarati ? '૧૦૦% શુદ્ધ સીંગતેલ અને ઘી' : '100% Pure Groundnut Oil & Ghee'}
+              <h4 className="font-bold text-xs sm:text-base text-stone-900 uppercase tracking-tight">
+                {isGujarati ? '૧૦૦% શુદ્ધ સામગ્રી' : '100% Pure'}
               </h4>
-              <p className="text-xs text-stone-500 mt-0.5">
-                {isGujarati ? 'પામતેલ મુક્ત, ઘર જેવો પવિત્ર સ્વાદ' : 'Zero palm oil, pure homemade taste'}
+              <p className="text-[10px] text-stone-500 mt-0.5">
+                {isGujarati ? 'પામતેલ મુક્ત' : 'Zero palm oil'}
               </p>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-4 border border-cream-300 shadow-soft flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-kothmir-100 text-kothmir-700 flex items-center justify-center shrink-0">
-              <Clock className="w-6 h-6 text-kothmir-700" />
+          <div className="bg-orange-50/50 rounded-xl p-4 border border-orange-100 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+              <Clock className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-extrabold text-sm text-stone-900">
-                {isGujarati ? 'ગરમાગરમ દૈનિક તાજી બેચ' : 'Daily Fresh Steamed & Fried'}
+              <h4 className="font-bold text-xs sm:text-base text-stone-900 uppercase tracking-tight">
+                {isGujarati ? 'દરરોજ તાજી બેચ' : 'Daily Fresh'}
               </h4>
-              <p className="text-xs text-stone-500 mt-0.5">
-                {isGujarati ? 'ઓર્ડર મુજબ તાજું પેકિંગ અને ડિલિવરી' : 'Packed hot right before scheduled delivery'}
+              <p className="text-[10px] text-stone-500 mt-0.5">
+                {isGujarati ? 'ઓર્ડર મુજબ ગરમાગરમ' : 'Packed hot'}
               </p>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-4 border border-cream-300 shadow-soft flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-saffron-100 text-saffron-700 flex items-center justify-center shrink-0">
-              <Users className="w-6 h-6 text-saffron-700" />
+          <div className="bg-orange-50/50 rounded-xl p-4 border border-orange-100 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-amber-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+              <Users className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-extrabold text-sm text-stone-900">
-                {isGujarati ? '૫૦૦+ પ્રસંગ માટે લાઈવ કેટરિંગ' : '500+ Catered Events'}
+              <h4 className="font-bold text-xs sm:text-base text-stone-900 uppercase tracking-tight">
+                {isGujarati ? 'લાઈવ કેટરિંગ' : 'Live Catering'}
               </h4>
-              <p className="text-xs text-stone-500 mt-0.5">
-                {isGujarati ? 'લગ્ન, પૂજા અને પાર્ટી લાઈવ કાઉન્ટર્સ' : 'Traditional halwai setups for 25-500+ guests'}
+              <p className="text-[10px] text-stone-500 mt-0.5">
+                {isGujarati ? '૨૫ થી ૫૦૦+ મહેમાનો' : 'For 25-500+ guests'}
               </p>
             </div>
           </div>
@@ -150,26 +150,26 @@ const HomePage = () => {
 
       {/* 2. Categories Section */}
       <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-          <span className="text-xs font-bold uppercase tracking-wider text-saffron-700 bg-saffron-50 px-3.5 py-1 rounded-full border border-saffron-200">
-            {isGujarati ? 'હાથે બનાવેલી વાનગીઓ' : 'Handcrafted Varieties'}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-saffron-600 bg-orange-50 px-3 py-1 rounded-full border border-orange-100">
+            {isGujarati ? 'હાથે બનાવેલી વાનગીઓ' : 'Artisanal Selection'}
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-stone-900 mt-2">
+          <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 mt-4 tracking-tight">
             {t('categoriesTitle')}
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 mt-1.5">
+          <p className="text-xs sm:text-sm text-stone-500 mt-2">
             {t('categoriesSubtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 sm:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-6">
           {categories.map((cat) => (
             <Link
               key={cat._id}
               to={`/menu?category=${cat.slug}`}
-              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft hover:shadow-hover border border-cream-200 bg-white p-2.5 sm:p-4 text-center transition-all duration-300 hover:-translate-y-1"
+              className="group flex flex-col items-center text-center"
             >
-              <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-2.5 bg-cream-100">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-soft group-hover:shadow-hover transition-all duration-300 mb-4 border border-orange-100">
                 <img
                   src={cat.image || 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&auto=format&fit=crop&q=80'}
                   alt={cat.name}
@@ -177,48 +177,42 @@ const HomePage = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h3 className="font-extrabold text-xs sm:text-base text-stone-900 group-hover:text-saffron-700 transition leading-snug">
+              <h3 className="font-bold text-xs sm:text-sm text-stone-900 group-hover:text-saffron-600 transition-colors uppercase tracking-wider">
                 {getCategoryName(cat.name)}
               </h3>
-              {isGujarati && getCategoryName(cat.name) !== cat.name && (
-                <span className="text-[10px] text-stone-400 block font-medium truncate mt-0.5">{cat.name}</span>
-              )}
             </Link>
           ))}
         </div>
       </section>
 
-      {/* 3. Featured Products Grid with Interactive Filter Tabs */}
+      {/* 3. Featured Products Grid */}
       <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
-          <div>
-            <span className="text-xs font-extrabold uppercase tracking-wider text-kothmir-800 bg-kothmir-50 px-3.5 py-1 rounded-full border border-kothmir-200">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-12">
+          <div className="text-center sm:text-left">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
               {t('featuredBadge')}
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-stone-900 mt-2">
+            <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 mt-4 tracking-tight">
               {t('featuredTitle')}
             </h2>
-            <p className="text-xs sm:text-sm text-stone-600 mt-1">
-              {isGujarati ? 'અમારા રસોડાની સૌથી લોકપ્રિય અને દરરોજ ગરમાગરમ બનતી વાનગીઓ' : 'Our most loved and freshly prepared daily specialties.'}
-            </p>
           </div>
           <Link
             to="/menu"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-saffron-700 hover:text-saffron-800 bg-saffron-50 px-4 py-2 rounded-xl border border-saffron-200 hover:bg-saffron-100 transition group"
+            className="inline-flex items-center gap-2 text-xs font-bold text-saffron-600 hover:text-saffron-700 transition-colors"
           >
             <span>{t('viewFullMenu')}</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-6">
             {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="bg-white rounded-3xl h-80 animate-pulse border border-cream-200"></div>
+              <div key={i} className="bg-orange-50/50 rounded-2xl h-64 sm:h-80 animate-pulse border border-orange-100"></div>
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-6">
             {featuredProducts.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
@@ -227,79 +221,56 @@ const HomePage = () => {
       </section>
 
       {/* 4. The Gujarati Purity & Heritage Promise */}
-      <section className="bg-gradient-to-b from-cream-200/70 via-cream-100 to-cream-200/50 py-16 lg:py-20 border-y border-cream-300">
+      <section className="bg-orange-50/50 py-16 sm:py-20 border-y border-orange-100">
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-saffron-700 bg-saffron-50 px-3.5 py-1 rounded-full border border-saffron-200">
-              {isGujarati ? 'અમારો શુદ્ધતા સંકલ્પ' : 'Our Purity & Heritage Promise'}
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-saffron-600 bg-white px-3 py-1 rounded-full border border-orange-100">
+              {isGujarati ? 'અમારો શુદ્ધતા સંકલ્પ' : 'Our Purity Promise'}
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-stone-900 mt-2">
+            <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 mt-6 tracking-tight">
               {t('whyTitle')}
             </h2>
-            <p className="text-xs sm:text-sm text-stone-600 mt-2">
-              {t('whySubtitle')}
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-3xl shadow-soft border border-cream-300 hover:-translate-y-1 hover:border-saffron-300 transition duration-300 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-saffron-100 text-saffron-700 flex items-center justify-center mb-4 text-2xl shadow-xs">
-                  🥜
-                </div>
-                <h3 className="font-extrabold text-lg text-stone-900 mb-2">{t('pureOilTitle')}</h3>
-                <p className="text-xs text-stone-600 leading-relaxed font-normal">
-                  {t('pureOilDesc')}
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-8 rounded-2xl border border-orange-100 shadow-soft hover:shadow-hover transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-orange-50 text-saffron-600 flex items-center justify-center mb-6 text-2xl">
+                🥜
               </div>
-              <div className="mt-4 pt-3 border-t border-cream-200 text-[11px] font-bold text-saffron-700">
-                ✓ {isGujarati ? 'ઝીરો પામ ઓઇલ ગેરંટી' : 'Zero Palm Oil Guarantee'}
-              </div>
+              <h3 className="font-bold text-lg text-stone-900 mb-3 uppercase tracking-tight">{t('pureOilTitle')}</h3>
+              <p className="text-xs text-stone-500 leading-relaxed">
+                {t('pureOilDesc')}
+              </p>
             </div>
 
-            <div className="bg-white p-6 rounded-3xl shadow-soft border border-cream-300 hover:-translate-y-1 hover:border-kothmir-300 transition duration-300 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-kothmir-100 text-kothmir-700 flex items-center justify-center mb-4 text-2xl shadow-xs">
-                  📜
-                </div>
-                <h3 className="font-extrabold text-lg text-stone-900 mb-2">{t('tradRecipeTitle')}</h3>
-                <p className="text-xs text-stone-600 leading-relaxed font-normal">
-                  {t('tradRecipeDesc')}
-                </p>
+            <div className="bg-white p-8 rounded-2xl border border-orange-100 shadow-soft hover:shadow-hover transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-orange-50 text-emerald-600 flex items-center justify-center mb-6 text-2xl">
+                📜
               </div>
-              <div className="mt-4 pt-3 border-t border-cream-200 text-[11px] font-bold text-kothmir-700">
-                ✓ {isGujarati ? 'કાઠિયાવાડી-સુરતી અસલ સ્વાદ' : 'Traditional Heirloom Recipes'}
-              </div>
+              <h3 className="font-bold text-lg text-stone-900 mb-3 uppercase tracking-tight">{t('tradRecipeTitle')}</h3>
+              <p className="text-xs text-stone-500 leading-relaxed">
+                {t('tradRecipeDesc')}
+              </p>
             </div>
 
-            <div className="bg-white p-6 rounded-3xl shadow-soft border border-cream-300 hover:-translate-y-1 hover:border-amber-300 transition duration-300 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 text-2xl shadow-xs">
-                  🍲
-                </div>
-                <h3 className="font-extrabold text-lg text-stone-900 mb-2">{t('smallBatchTitle')}</h3>
-                <p className="text-xs text-stone-600 leading-relaxed font-normal">
-                  {t('smallBatchDesc')}
-                </p>
+            <div className="bg-white p-8 rounded-2xl border border-orange-100 shadow-soft hover:shadow-hover transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-orange-50 text-amber-600 flex items-center justify-center mb-6 text-2xl">
+                🍲
               </div>
-              <div className="mt-4 pt-3 border-t border-cream-200 text-[11px] font-bold text-amber-800">
-                ✓ {isGujarati ? 'કઢાઈમાંથી સીધું ગરમાગરમ' : 'Fresh Out of the Kadai'}
-              </div>
+              <h3 className="font-bold text-lg text-stone-900 mb-3 uppercase tracking-tight">{t('smallBatchTitle')}</h3>
+              <p className="text-xs text-stone-500 leading-relaxed">
+                {t('smallBatchDesc')}
+              </p>
             </div>
 
-            <div className="bg-white p-6 rounded-3xl shadow-soft border border-cream-300 hover:-translate-y-1 hover:border-emerald-300 transition duration-300 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 text-2xl shadow-xs">
-                  🌿
-                </div>
-                <h3 className="font-extrabold text-lg text-stone-900 mb-2">{t('jainFriendlyTitle')}</h3>
-                <p className="text-xs text-stone-600 leading-relaxed font-normal">
-                  {t('jainFriendlyDesc')}
-                </p>
+            <div className="bg-white p-8 rounded-2xl border border-orange-100 shadow-soft hover:shadow-hover transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-orange-50 text-emerald-600 flex items-center justify-center mb-6 text-2xl">
+                🌿
               </div>
-              <div className="mt-4 pt-3 border-t border-cream-200 text-[11px] font-bold text-emerald-700">
-                ✓ {isGujarati ? '૧૦૦% શુદ્ધ જૈન વાસણો' : 'Dedicated Jain Cookware'}
-              </div>
+              <h3 className="font-bold text-lg text-stone-900 mb-3 uppercase tracking-tight">{t('jainFriendlyTitle')}</h3>
+              <p className="text-xs text-stone-500 leading-relaxed">
+                {t('jainFriendlyDesc')}
+              </p>
             </div>
           </div>
         </div>
@@ -307,159 +278,119 @@ const HomePage = () => {
 
       {/* 5. How Ordering Works */}
       <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-extrabold uppercase tracking-wider text-kothmir-800 bg-kothmir-50 px-3.5 py-1 rounded-full border border-kothmir-200">
-            {isGujarati ? 'સરળ ઓર્ડર પ્રક્રિયા' : 'Simple 3-Step Process'}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-stone-600 bg-stone-50 px-3 py-1 rounded-full border border-stone-200">
+            {isGujarati ? 'સરળ પ્રક્રિયા' : 'Simple Ordering'}
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-stone-900 mt-2">
+          <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 mt-6 tracking-tight">
             {t('howTitle')}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-          <div className="bg-white p-6 sm:p-7 rounded-3xl border border-cream-300 shadow-soft text-center relative group hover:border-saffron-300 transition">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-saffron-600 to-saffron-700 text-white font-extrabold text-xl flex items-center justify-center mx-auto mb-4 shadow-md group-hover:scale-105 transition-transform">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="text-center group">
+            <div className="w-16 h-16 rounded-full bg-saffron-600 text-white font-bold text-2xl flex items-center justify-center mx-auto mb-6 shadow-saffron group-hover:scale-110 transition-transform">
               ૧
             </div>
-            <h3 className="font-extrabold text-base sm:text-lg text-stone-900 mb-2">{t('step1Title')}</h3>
-            <p className="text-xs text-stone-600 leading-relaxed font-normal">
+            <h3 className="font-bold text-lg text-stone-900 mb-3 uppercase tracking-tight">{t('step1Title')}</h3>
+            <p className="text-xs text-stone-500 leading-relaxed">
               {t('step1Desc')}
             </p>
           </div>
 
-          <div className="bg-white p-6 sm:p-7 rounded-3xl border border-cream-300 shadow-soft text-center relative group hover:border-saffron-300 transition">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-saffron-600 to-saffron-700 text-white font-extrabold text-xl flex items-center justify-center mx-auto mb-4 shadow-md group-hover:scale-105 transition-transform">
+          <div className="text-center group">
+            <div className="w-16 h-16 rounded-full bg-saffron-600 text-white font-bold text-2xl flex items-center justify-center mx-auto mb-6 shadow-saffron group-hover:scale-110 transition-transform">
               ૨
             </div>
-            <h3 className="font-extrabold text-base sm:text-lg text-stone-900 mb-2">{t('step2Title')}</h3>
-            <p className="text-xs text-stone-600 leading-relaxed font-normal">
+            <h3 className="font-bold text-lg text-stone-900 mb-3 uppercase tracking-tight">{t('step2Title')}</h3>
+            <p className="text-xs text-stone-500 leading-relaxed">
               {t('step2Desc')}
             </p>
           </div>
 
-          <div className="bg-white p-6 sm:p-7 rounded-3xl border border-cream-300 shadow-soft text-center relative group hover:border-saffron-300 transition">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-saffron-600 to-saffron-700 text-white font-extrabold text-xl flex items-center justify-center mx-auto mb-4 shadow-md group-hover:scale-105 transition-transform">
+          <div className="text-center group">
+            <div className="w-16 h-16 rounded-full bg-saffron-600 text-white font-bold text-2xl flex items-center justify-center mx-auto mb-6 shadow-saffron group-hover:scale-110 transition-transform">
               ૩
             </div>
-            <h3 className="font-extrabold text-base sm:text-lg text-stone-900 mb-2">{t('step3Title')}</h3>
-            <p className="text-xs text-stone-600 leading-relaxed font-normal">
+            <h3 className="font-bold text-lg text-stone-900 mb-3 uppercase tracking-tight">{t('step3Title')}</h3>
+            <p className="text-xs text-stone-500 leading-relaxed">
               {t('step3Desc')}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Customer Testimonials from Gujarati Families */}
+      {/* Customer Testimonials */}
       <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-extrabold uppercase tracking-wider text-saffron-700 bg-saffron-50 px-3.5 py-1 rounded-full border border-saffron-200">
-            {isGujarati ? 'ગ્રાહકોનો સાચો પ્રેમ' : 'Customer Reviews'}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-saffron-600 bg-orange-50 px-3 py-1 rounded-full border border-orange-100">
+            {isGujarati ? 'ગ્રાહકોનો સાચો પ્રેમ' : 'Customer Stories'}
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-stone-900 mt-2">
-            {isGujarati ? 'ગુજરાતી પરિવારોનો વિશ્વાસ' : 'Loved by 1,200+ Gujarati Families'}
+          <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 mt-6 tracking-tight">
+            {isGujarati ? 'ગુજરાતી પરિવારોનો વિશ્વાસ' : 'Loved by Families'}
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 mt-1">
-            {isGujarati ? 'અમદાવાદના સેટેલાઇટ, બોડકદેવ અને નવરંગપુરાના પરિવારોનો સાચો પ્રતિભાવ' : 'Real feedback from our happy families across Ahmedabad.'}
-          </p>
         </div>
 
         <div className="relative">
           <Swiper
             modules={[Autoplay, Pagination]}
-            spaceBetween={20}
+            spaceBetween={30}
             slidesPerView={1}
             breakpoints={{
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
-            className="pb-12"
+            className="pb-16"
           >
             <SwiperSlide className="h-auto">
-              <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between h-full">
+              <div className="bg-white p-8 rounded-2xl border border-orange-100 shadow-soft flex flex-col justify-between h-full">
                 <div>
-                  <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
-                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
+                  <div className="flex text-amber-400 gap-1 text-xs mb-4">★★★★★</div>
+                  <p className="text-sm text-stone-600 leading-relaxed italic">
                     {isGujarati
                       ? '“દિવાળી પર અમે ૧૫ કિલો મોહનથાળ અને નાયલોન સેવ મંગાવી હતી. શુદ્ધ ગાયના ઘીની એવી મહેક હતી કે બધા મહેમાનો વખાણ કરતાં થાક્યા નહીં!”'
                       : '“We ordered Mohan Thal and Nylon Sev for Diwali. The pure cow ghee aroma and authentic taste won over all our guests!”'}
                   </p>
                 </div>
-                <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-                  <div>
-                    <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'પ્રવીણભાઈ શાહ' : 'Pravinbhai Shah'}</h4>
-                    <p className="text-[11px] text-stone-500">{isGujarati ? 'સેટેલાઇટ, અમદાવાદ' : 'Satellite, Ahmedabad'}</p>
-                  </div>
-                  <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
-                    ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
-                  </span>
+                <div className="mt-6 pt-6 border-t border-orange-50">
+                  <h4 className="font-bold text-sm text-stone-900 uppercase tracking-tight">{isGujarati ? 'પ્રવીણભાઈ શાહ' : 'Pravinbhai Shah'}</h4>
+                  <p className="text-[10px] text-stone-400 font-bold uppercase tracking-wider mt-1">{isGujarati ? 'સેટેલાઇટ, અમદાવાદ' : 'Satellite, Ahmedabad'}</p>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide className="h-auto">
-              <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between h-full">
+              <div className="bg-white p-8 rounded-2xl border border-orange-100 shadow-soft flex flex-col justify-between h-full">
                 <div>
-                  <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
-                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
+                  <div className="flex text-amber-400 gap-1 text-xs mb-4">★★★★★</div>
+                  <p className="text-sm text-stone-600 leading-relaxed italic">
                     {isGujarati
                       ? '“રવિવારે સવારે ગરમાગરમ ફાફડા અને પપૈયાનો સંભારો મંગાવ્યો. તેલ બિલકુલ હલકું અને ચોખ્ખું હતું, પેટમાં જરાય ભારે ન લાગ્યું.”'
                       : '“Sunday morning Fafda and Papaya Sambharo arrived piping hot. The groundnut oil was fresh and light on the stomach.”'}
                   </p>
                 </div>
-                <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-                  <div>
-                    <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'ગીતાબેન મહેતા' : 'Geetaben Mehta'}</h4>
-                    <p className="text-[11px] text-stone-500">{isGujarati ? 'બોડકદેવ, અમદાવાદ' : 'Bodakdev, Ahmedabad'}</p>
-                  </div>
-                  <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
-                    ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
-                  </span>
+                <div className="mt-6 pt-6 border-t border-orange-50">
+                  <h4 className="font-bold text-sm text-stone-900 uppercase tracking-tight">{isGujarati ? 'ગીતાબેન મહેતા' : 'Geetaben Mehta'}</h4>
+                  <p className="text-[10px] text-stone-400 font-bold uppercase tracking-wider mt-1">{isGujarati ? 'બોડકદેવ, અમદાવાદ' : 'Bodakdev, Ahmedabad'}</p>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide className="h-auto">
-              <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between h-full">
+              <div className="bg-white p-8 rounded-2xl border border-orange-100 shadow-soft flex flex-col justify-between h-full">
                 <div>
-                  <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
-                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
+                  <div className="flex text-amber-400 gap-1 text-xs mb-4">★★★★★</div>
+                  <p className="text-sm text-stone-600 leading-relaxed italic">
                     {isGujarati
                       ? '“વાસ્તુપૂજામાં ૫૦ મહેમાનો માટે લાઈવ ખમણ અને ગોટા કાઉન્ટર બુક કર્યું હતું. સર્વિસ અને સ્વાદ બંને નંબર વન હતા!”'
                       : '“Booked live Dhokla and Gota counter for our Vastu Pooja (50 guests). Outstanding service and authentic Gujarati hospitality!”'}
                   </p>
                 </div>
-                <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-                  <div>
-                    <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'હિતેશભાઈ પટેલ' : 'Hiteshbhai Patel'}</h4>
-                    <p className="text-[11px] text-stone-500">{isGujarati ? 'નવરંગપુરા, અમદાવાદ' : 'Navrangpura, Ahmedabad'}</p>
-                  </div>
-                  <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
-                    ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
-                  </span>
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="h-auto">
-              <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between h-full">
-                <div>
-                  <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
-                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
-                    {isGujarati
-                      ? '“મેથીના થેપલા અને કેરીનો છુંદો પ્રવાસ માટે લીધો હતો. ૪ દિવસ સુધી બિલકુલ નરમ અને તાજા રહ્યા. ઉત્તમ ક્વોલિટી!”'
-                      : '“Packed Methi Thepla and Mango Chhundo for our outstation journey. Stayed soft and delicious for 4 days!”'}
-                  </p>
-                </div>
-                <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-                  <div>
-                    <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'જયશ્રીબેન ત્રિવેદી' : 'Jayshreeben Trivedi'}</h4>
-                    <p className="text-[11px] text-stone-500">{isGujarati ? 'પાલડી, અમદાવાદ' : 'Paldi, Ahmedabad'}</p>
-                  </div>
-                  <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
-                    ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
-                  </span>
+                <div className="mt-6 pt-6 border-t border-orange-50">
+                  <h4 className="font-bold text-sm text-stone-900 uppercase tracking-tight">{isGujarati ? 'હિતેશભાઈ પટેલ' : 'Hiteshbhai Patel'}</h4>
+                  <p className="text-[10px] text-stone-400 font-bold uppercase tracking-wider mt-1">{isGujarati ? 'નવરંગપુરા, અમદાવાદ' : 'Navrangpura, Ahmedabad'}</p>
                 </div>
               </div>
             </SwiperSlide>
@@ -469,40 +400,35 @@ const HomePage = () => {
 
       {/* 6. Catering Promotional Banner */}
       <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="rounded-3xl bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 text-white p-6 sm:p-10 lg:p-14 relative overflow-hidden shadow-2xl border border-stone-700">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-saffron-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="rounded-3xl bg-stone-900 text-white p-10 sm:p-16 relative overflow-hidden shadow-xl border border-stone-800">
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-saffron-600/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center relative z-10">
-            <div className="lg:col-span-8 space-y-3.5">
-              <span className="inline-block px-3 py-1 rounded-full bg-saffron-600 text-white text-[11px] sm:text-xs font-extrabold tracking-wider uppercase">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+            <div className="lg:col-span-8 space-y-6">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-saffron-600 text-white text-[10px] font-bold uppercase tracking-widest">
                 {t('cateringBannerBadge')}
               </span>
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight tracking-tight">
                 {t('cateringBannerTitle')}
               </h2>
-              <p className="text-xs sm:text-sm text-stone-300 max-w-2xl leading-relaxed font-normal">
+              <p className="text-sm sm:text-lg text-stone-400 max-w-xl leading-relaxed">
                 {t('cateringBannerDesc')}
               </p>
-              <div className="flex flex-wrap gap-3 pt-1 text-xs text-stone-300 font-medium">
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-kothmir-400 shrink-0" /> {isGujarati ? 'ગરમાગરમ લાઈવ કાઉન્ટર' : 'Live On-Site Counters'}</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-kothmir-400 shrink-0" /> {isGujarati ? 'સંપૂર્ણ શુદ્ધ જૈન મેનુ' : 'Complete Jain Menu'}</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-kothmir-400 shrink-0" /> {isGujarati ? '૨૫ થી ૫૦૦+ મહેમાનો' : '25 to 500+ Guests'}</span>
-              </div>
             </div>
 
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
+            <div className="lg:col-span-4 flex flex-col gap-4">
               <Link
                 to="/catering"
-                className="w-full text-center py-3.5 px-6 rounded-2xl bg-gradient-to-r from-saffron-600 to-saffron-700 hover:from-saffron-500 hover:to-saffron-600 font-extrabold text-xs sm:text-sm text-white shadow-lg transition active:scale-95 glow-saffron"
+                className="w-full text-center py-4 px-8 rounded-xl bg-white text-stone-950 hover:bg-orange-50 font-bold text-sm uppercase tracking-wider transition-all active:scale-95"
               >
                 {t('requestQuoteBtn')}
               </Link>
               <a
                 href={`tel:${settings.contactPhone}`}
-                className="w-full text-center py-3 px-6 rounded-2xl bg-stone-800/80 hover:bg-stone-700 border border-stone-600 font-bold text-xs sm:text-sm text-white transition flex items-center justify-center gap-2 active:scale-95"
+                className="w-full text-center py-4 px-8 rounded-xl bg-stone-800 hover:bg-stone-700 border border-stone-700 font-bold text-sm text-white uppercase tracking-wider transition-all flex items-center justify-center gap-2 active:scale-95"
               >
-                <Phone className="w-4 h-4 text-saffron-400" />
-                <span>{isGujarati ? 'ફોન કરો: ' : 'Call: '}{settings.contactPhone}</span>
+                <Phone className="w-5 h-5 text-saffron-600" />
+                <span>{isGujarati ? 'ફોન કરો' : 'Call Now'}</span>
               </a>
             </div>
           </div>
