@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background-color: #FAF7F2;
+    color: #221B15;
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  /* When Gujarati is active on body */
+  body.font-gujarati {
+    font-family: 'Anek Gujarati', 'Hind Vadodara', system-ui, sans-serif;
+    letter-spacing: 0.01em;
+  }
+
+  /* Specific typography hierarchy for Gujarati */
+  body.font-gujarati h1,
+  body.font-gujarati h2 {
+    font-family: 'Rasa', 'Anek Gujarati', serif;
+    letter-spacing: normal;
+    line-height: 1.3;
+  }
+
+  body.font-gujarati h3,
+  body.font-gujarati h4,
+  body.font-gujarati .font-serif {
+    font-family: 'Anek Gujarati', 'Rasa', sans-serif;
+    letter-spacing: normal;
+    line-height: 1.35;
+  }
+
+  body.font-gujarati p,
+  body.font-gujarati span,
+  body.font-gujarati li {
+    line-height: 1.6;
+  }
+
+  /* Numbers & prices should always look sharp */
+  .tabular-price {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(235, 220, 203, 0.6);
+}
+
+.glass-dark {
+  background: rgba(28, 25, 23, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glow effects */
+.glow-saffron {
+  box-shadow: 0 10px 25px -5px rgba(229, 99, 27, 0.35);
+}
+
+.glow-kothmir {
+  box-shadow: 0 10px 25px -5px rgba(24, 99, 59, 0.3);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f7efe4;
+}
+::-webkit-scrollbar-thumb {
+  background: #dfcdb9;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c44d18;
+}
+
+/* Print styles for owner receipts */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSlow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 3s ease-in-out infinite;
+}

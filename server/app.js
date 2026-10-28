@@ -1,0 +1,71 @@
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import path from 'path';
+
+import authRoutes from './routes/authRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
+import cateringRoutes from './routes/cateringRoutes.js';
+import settingsRoutes from './routes/settingsRoutes.js';
+import { notFoundHandler, errorHandler } from './middleware/errorHandler.js';
+
+const app = express();
+
+// Security HTTP headers
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+  })
+);
+
+// CORS configuration
+app.use(
+  cors({
+    origin: process.env.CLIENT_ORIGIN || '*',
+    credentials: true,
+  })
+);
+
+// Rate limiter: 300 requests per 15 minutes
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 300,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    success: false,
+    message: 'Too many requests from this IP. Please try again after 15 minutes.',
+  },
+});
+app.use('/api', limiter);
+
+// Body parsers
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Serve static uploads
+app.use('/uploads', express.static(path.resolve('uploads')));
+
+// Root healthcheck
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    service: 'Gujarati Farsan & Catering API',
+  });
+});
+
+// API Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/catering-enquiries', cateringRoutes);
+app.use('/api/settings', settingsRoutes);
+
+// Error Handling
+app.use(notFoundHandler);
+app.use(errorHandler);
+
+export default app;
