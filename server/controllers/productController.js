@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { Product } from '../models/Product.js';
 import { Category } from '../models/Category.js';
 
@@ -244,6 +245,23 @@ export const uploadProductImage = (req, res) => {
       success: false,
       message: 'No image file uploaded.',
     });
+  }
+
+  try {
+    // If file is under 4MB, encode as Base64 Data URI so it persists in MongoDB Atlas across Render restarts
+    if (req.file.size <= 4 * 1024 * 1024 && fs.existsSync(req.file.path)) {
+      const mime = req.file.mimetype || 'image/jpeg';
+      const fileBuffer = fs.readFileSync(req.file.path);
+      const base64Data = `data:${mime};base64,${fileBuffer.toString('base64')}`;
+
+      return res.json({
+        success: true,
+        imageUrl: base64Data,
+        filename: req.file.filename,
+      });
+    }
+  } catch (err) {
+    console.warn('[Upload] Failed to encode base64, falling back to disk path:', err.message);
   }
 
   const imageUrl = `/uploads/${req.file.filename}`;

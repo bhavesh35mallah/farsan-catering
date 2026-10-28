@@ -50,7 +50,27 @@ app.use('/api', limiter);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Serve static uploads
+// Serve static uploads with graceful fallback for ephemeral cloud hosting (Render)
+const uploadDirs = [
+  path.resolve('uploads'),
+  path.resolve('server/uploads'),
+];
+
+app.get('/uploads/:filename', (req, res, next) => {
+  const filename = path.basename(req.params.filename);
+  for (const dir of uploadDirs) {
+    const fullPath = path.join(dir, filename);
+    if (fs.existsSync(fullPath)) {
+      return res.sendFile(fullPath);
+    }
+  }
+
+  // Fallback if image was removed during an ephemeral cloud restart:
+  // Redirect to high-quality Gujarati farsan photography so UI never breaks
+  return res.redirect(
+    'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&auto=format&fit=crop&q=80'
+  );
+});
 app.use('/uploads', express.static(path.resolve('uploads')));
 
 // Root healthcheck
