@@ -16,9 +16,12 @@ import {
   Truck,
 } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
+import HomeHeroSlider from '../components/HomeHeroSlider';
 import { productService } from '../services/productService';
 import { useSettings } from '../context/SettingsContext';
 import { useLanguage } from '../context/LanguageContext';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 const HomePage = () => {
   const { settings } = useSettings();
@@ -95,118 +98,51 @@ const HomePage = () => {
 
   return (
     <div className={`space-y-12 sm:space-y-20 ${isGujarati ? 'font-gujarati' : ''}`}>
-      {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-cream-200/90 via-cream-100/70 to-white pt-6 pb-12 sm:py-16 lg:py-20 border-b border-cream-200">
-        {/* Decorative background glow blobs */}
-        <div className="absolute top-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-saffron-300/25 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-kothmir-300/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+      {/* 1. Amazing Swiper Hero Showcase Slider */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
+        <HomeHeroSlider />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Column: Headlines & Call to Actions */}
-            <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
-              {/* Freshness Live Pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-saffron-300 text-saffron-800 text-xs sm:text-sm font-extrabold shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                <span className="w-2 h-2 rounded-full bg-emerald-600 -ml-3.5"></span>
-                <span>{isGujarati ? '૧૦૦% શુદ્ધ સીંગતેલ અને ગાયનું ઘી • દરરોજ તાજી બેચ' : '100% Pure Groundnut Oil & Cow Ghee • Fresh Daily'}</span>
-              </div>
-
-              {/* Main Headline */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 leading-[1.25] tracking-tight">
-                {t('heroTitle1')}{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-saffron-600 via-amber-600 to-saffron-700 block sm:inline">
-                  {t('heroTitle2')}
-                </span>
-              </h1>
-
-              {/* Description */}
-              <p className="text-sm sm:text-base lg:text-lg text-stone-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                {t('heroDesc')}
-              </p>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
-                <Link
-                  to="/menu"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 bg-gradient-to-r from-saffron-600 to-saffron-700 hover:from-saffron-700 hover:to-saffron-800 active:scale-95 text-white font-extrabold rounded-2xl shadow-lg hover:shadow-saffron-600/30 transition flex items-center justify-center gap-2 text-sm sm:text-base glow-saffron"
-                >
-                  <ShoppingBag className="w-5 h-5" />
-                  <span>{t('orderFarsanBtn')}</span>
-                </Link>
-
-                <Link
-                  to="/catering"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 bg-white hover:bg-cream-100 active:scale-95 border-2 border-kothmir-700 text-kothmir-800 font-extrabold rounded-2xl shadow-sm transition flex items-center justify-center gap-2 text-sm sm:text-base"
-                >
-                  <ChefHat className="w-5 h-5 text-kothmir-700" />
-                  <span>{t('enquireCateringBtn')}</span>
-                </Link>
-              </div>
-
-              {/* Trust Indicators: 3 Responsive Stat Cards */}
-              <div className="pt-4 grid grid-cols-3 gap-2 sm:gap-4 border-t border-cream-300 max-w-lg mx-auto lg:mx-0 text-center sm:text-left">
-                <div className="bg-white/80 rounded-xl p-2.5 sm:p-3 border border-cream-200 shadow-xs">
-                  <div className="font-extrabold text-base sm:text-xl text-saffron-800">{isGujarati ? '૧૦૦% શુદ્ધ' : '100% Pure'}</div>
-                  <div className="text-[10px] sm:text-xs text-stone-600 font-semibold mt-0.5">{isGujarati ? 'સીંગતેલ અને ઘી' : 'Groundnut & Ghee'}</div>
-                </div>
-                <div className="bg-white/80 rounded-xl p-2.5 sm:p-3 border border-cream-200 shadow-xs">
-                  <div className="font-extrabold text-base sm:text-xl text-saffron-800">{isGujarati ? 'ગરમાગરમ' : 'Same-Day'}</div>
-                  <div className="text-[10px] sm:text-xs text-stone-600 font-semibold mt-0.5">{isGujarati ? 'દરરોજ તાજી બેચ' : 'Fresh Daily Batch'}</div>
-                </div>
-                <div className="bg-white/80 rounded-xl p-2.5 sm:p-3 border border-cream-200 shadow-xs">
-                  <div className="font-extrabold text-base sm:text-xl text-saffron-800">{isGujarati ? '૫૦૦+ પ્રસંગ' : '500+ Events'}</div>
-                  <div className="text-[10px] sm:text-xs text-stone-600 font-semibold mt-0.5">{isGujarati ? 'સફળ કેટરિંગ' : 'Catered with Care'}</div>
-                </div>
-              </div>
+        {/* 3 Responsive Trust Guarantee Cards */}
+        <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+          <div className="bg-white rounded-2xl p-4 border border-cream-300 shadow-soft flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-6 h-6 text-saffron-700" />
             </div>
+            <div>
+              <h4 className="font-extrabold text-sm text-stone-900">
+                {isGujarati ? '૧૦૦% શુદ્ધ સીંગતેલ અને ઘી' : '100% Pure Groundnut Oil & Ghee'}
+              </h4>
+              <p className="text-xs text-stone-500 mt-0.5">
+                {isGujarati ? 'પામતેલ મુક્ત, ઘર જેવો પવિત્ર સ્વાદ' : 'Zero palm oil, pure homemade taste'}
+              </p>
+            </div>
+          </div>
 
-            {/* Right Column: Hero Visual with Food Card Collage */}
-            <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
-                {/* Main Hero Food Platter Image */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] sm:aspect-square bg-cream-200">
-                  <img
-                    src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=800&auto=format&fit=crop&q=80"
-                    alt="Authentic Gujarati Farsan Platter"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/20 to-transparent"></div>
+          <div className="bg-white rounded-2xl p-4 border border-cream-300 shadow-soft flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-xl bg-kothmir-100 text-kothmir-700 flex items-center justify-center shrink-0">
+              <Clock className="w-6 h-6 text-kothmir-700" />
+            </div>
+            <div>
+              <h4 className="font-extrabold text-sm text-stone-900">
+                {isGujarati ? 'ગરમાગરમ દૈનિક તાજી બેચ' : 'Daily Fresh Steamed & Fried'}
+              </h4>
+              <p className="text-xs text-stone-500 mt-0.5">
+                {isGujarati ? 'ઓર્ડર મુજબ તાજું પેકિંગ અને ડિલિવરી' : 'Packed hot right before scheduled delivery'}
+              </p>
+            </div>
+          </div>
 
-                  {/* Overlaid Banner at bottom of image */}
-                  <div className="absolute bottom-3 left-3 right-3 text-white p-3 rounded-2xl bg-stone-900/75 backdrop-blur-md border border-white/20">
-                    <p className="text-[11px] text-amber-300 font-extrabold uppercase tracking-wider flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 text-amber-300" />
-                      {isGujarati ? 'સવારનો સ્પેશિયલ નાસ્તો' : 'Morning Special Fresh Batch'}
-                    </p>
-                    <p className="text-xs sm:text-sm font-bold mt-0.5">
-                      {isGujarati ? 'નાયલોન ખમણ • સિલ્કી ખાંડવી • ગરમાગરમ ફાફડા' : 'Nylon Khaman • Silky Khandvi • Hot Fafda'}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Floating Veg Badge */}
-                <div className="absolute -top-3 -left-3 bg-white/95 backdrop-blur-md p-2.5 sm:p-3 rounded-2xl shadow-xl border border-cream-300 flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-kothmir-100 text-kothmir-700 flex items-center justify-center font-bold text-base">
-                    🌿
-                  </div>
-                  <div>
-                    <div className="text-xs font-extrabold text-stone-900">{isGujarati ? '૧૦૦% શુદ્ધ શાકાહારી' : '100% Vegetarian'}</div>
-                    <div className="text-[10px] text-stone-500 font-semibold">{isGujarati ? 'જૈન વિકલ્પ ઉપલબ્ધ' : 'Jain options available'}</div>
-                  </div>
-                </div>
-
-                {/* Floating Rating Badge */}
-                <div className="absolute -bottom-3 -right-3 bg-white/95 backdrop-blur-md p-2.5 sm:p-3 rounded-2xl shadow-xl border border-cream-300 flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">
-                    ★
-                  </div>
-                  <div>
-                    <div className="text-xs font-extrabold text-stone-900">4.9 / 5 રેટિંગ</div>
-                    <div className="text-[10px] text-stone-500 font-semibold">{isGujarati ? '૧,૨૦૦+ પરિવારો' : '1,200+ Reviews'}</div>
-                  </div>
-                </div>
-              </div>
+          <div className="bg-white rounded-2xl p-4 border border-cream-300 shadow-soft flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-xl bg-saffron-100 text-saffron-700 flex items-center justify-center shrink-0">
+              <Users className="w-6 h-6 text-saffron-700" />
+            </div>
+            <div>
+              <h4 className="font-extrabold text-sm text-stone-900">
+                {isGujarati ? '૫૦૦+ પ્રસંગ માટે લાઈવ કેટરિંગ' : '500+ Catered Events'}
+              </h4>
+              <p className="text-xs text-stone-500 mt-0.5">
+                {isGujarati ? 'લગ્ન, પૂજા અને પાર્ટી લાઈવ કાઉન્ટર્સ' : 'Traditional halwai setups for 25-500+ guests'}
+              </p>
             </div>
           </div>
         </div>
@@ -427,66 +363,107 @@ const HomePage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between">
-            <div>
-              <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
-              <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
-                {isGujarati
-                  ? '“દિવાળી પર અમે ૧૫ કિલો મોહનથાળ અને નાયલોન સેવ મંગાવી હતી. શુદ્ધ ગાયના ઘીની એવી મહેક હતી કે બધા મહેમાનો વખાણ કરતાં થાક્યા નહીં!”'
-                  : '“We ordered Mohan Thal and Nylon Sev for Diwali. The pure cow ghee aroma and authentic taste won over all our guests!”'}
-              </p>
-            </div>
-            <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-              <div>
-                <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'પ્રવીણભાઈ શાહ' : 'Pravinbhai Shah'}</h4>
-                <p className="text-[11px] text-stone-500">{isGujarati ? 'સેટેલાઇટ, અમદાવાદ' : 'Satellite, Ahmedabad'}</p>
+        <div className="relative">
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            className="pb-12"
+          >
+            <SwiperSlide className="h-auto">
+              <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
+                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
+                    {isGujarati
+                      ? '“દિવાળી પર અમે ૧૫ કિલો મોહનથાળ અને નાયલોન સેવ મંગાવી હતી. શુદ્ધ ગાયના ઘીની એવી મહેક હતી કે બધા મહેમાનો વખાણ કરતાં થાક્યા નહીં!”'
+                      : '“We ordered Mohan Thal and Nylon Sev for Diwali. The pure cow ghee aroma and authentic taste won over all our guests!”'}
+                  </p>
+                </div>
+                <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'પ્રવીણભાઈ શાહ' : 'Pravinbhai Shah'}</h4>
+                    <p className="text-[11px] text-stone-500">{isGujarati ? 'સેટેલાઇટ, અમદાવાદ' : 'Satellite, Ahmedabad'}</p>
+                  </div>
+                  <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
+                    ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
+                  </span>
+                </div>
               </div>
-              <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
-                ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
-              </span>
-            </div>
-          </div>
+            </SwiperSlide>
 
-          <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between">
-            <div>
-              <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
-              <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
-                {isGujarati
-                  ? '“રવિવારે સવારે ગરમાગરમ ફાફડા અને પપૈયાનો સંભારો મંગાવ્યો. તેલ બિલકુલ હલકું અને ચોખ્ખું હતું, પેટમાં જરાય ભારે ન લાગ્યું.”'
-                  : '“Sunday morning Fafda and Papaya Sambharo arrived piping hot. The groundnut oil was fresh and light on the stomach.”'}
-              </p>
-            </div>
-            <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-              <div>
-                <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'ગીતાબેન મહેતા' : 'Geetaben Mehta'}</h4>
-                <p className="text-[11px] text-stone-500">{isGujarati ? 'બોડકદેવ, અમદાવાદ' : 'Bodakdev, Ahmedabad'}</p>
+            <SwiperSlide className="h-auto">
+              <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
+                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
+                    {isGujarati
+                      ? '“રવિવારે સવારે ગરમાગરમ ફાફડા અને પપૈયાનો સંભારો મંગાવ્યો. તેલ બિલકુલ હલકું અને ચોખ્ખું હતું, પેટમાં જરાય ભારે ન લાગ્યું.”'
+                      : '“Sunday morning Fafda and Papaya Sambharo arrived piping hot. The groundnut oil was fresh and light on the stomach.”'}
+                  </p>
+                </div>
+                <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'ગીતાબેન મહેતા' : 'Geetaben Mehta'}</h4>
+                    <p className="text-[11px] text-stone-500">{isGujarati ? 'બોડકદેવ, અમદાવાદ' : 'Bodakdev, Ahmedabad'}</p>
+                  </div>
+                  <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
+                    ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
+                  </span>
+                </div>
               </div>
-              <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
-                ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
-              </span>
-            </div>
-          </div>
+            </SwiperSlide>
 
-          <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between">
-            <div>
-              <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
-              <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
-                {isGujarati
-                  ? '“વાસ્તુપૂજામાં ૫૦ મહેમાનો માટે લાઈવ ખમણ અને ગોટા કાઉન્ટર બુક કર્યું હતું. સર્વિસ અને સ્વાદ બંને નંબર વન હતા!”'
-                  : '“Booked live Dhokla and Gota counter for our Vastu Pooja (50 guests). Outstanding service and authentic Gujarati hospitality!”'}
-              </p>
-            </div>
-            <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-              <div>
-                <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'હિતેશભાઈ પટેલ' : 'Hiteshbhai Patel'}</h4>
-                <p className="text-[11px] text-stone-500">{isGujarati ? 'નવરંગપુરા, અમદાવાદ' : 'Navrangpura, Ahmedabad'}</p>
+            <SwiperSlide className="h-auto">
+              <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
+                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
+                    {isGujarati
+                      ? '“વાસ્તુપૂજામાં ૫૦ મહેમાનો માટે લાઈવ ખમણ અને ગોટા કાઉન્ટર બુક કર્યું હતું. સર્વિસ અને સ્વાદ બંને નંબર વન હતા!”'
+                      : '“Booked live Dhokla and Gota counter for our Vastu Pooja (50 guests). Outstanding service and authentic Gujarati hospitality!”'}
+                  </p>
+                </div>
+                <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'હિતેશભાઈ પટેલ' : 'Hiteshbhai Patel'}</h4>
+                    <p className="text-[11px] text-stone-500">{isGujarati ? 'નવરંગપુરા, અમદાવાદ' : 'Navrangpura, Ahmedabad'}</p>
+                  </div>
+                  <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
+                    ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
+                  </span>
+                </div>
               </div>
-              <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
-                ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
-              </span>
-            </div>
-          </div>
+            </SwiperSlide>
+
+            <SwiperSlide className="h-auto">
+              <div className="bg-white p-6 rounded-3xl border border-cream-300 shadow-soft flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex text-amber-500 gap-1 text-sm mb-3">★★★★★</div>
+                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal italic">
+                    {isGujarati
+                      ? '“મેથીના થેપલા અને કેરીનો છુંદો પ્રવાસ માટે લીધો હતો. ૪ દિવસ સુધી બિલકુલ નરમ અને તાજા રહ્યા. ઉત્તમ ક્વોલિટી!”'
+                      : '“Packed Methi Thepla and Mango Chhundo for our outstation journey. Stayed soft and delicious for 4 days!”'}
+                  </p>
+                </div>
+                <div className="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-extrabold text-xs sm:text-sm text-stone-900">{isGujarati ? 'જયશ્રીબેન ત્રિવેદી' : 'Jayshreeben Trivedi'}</h4>
+                    <p className="text-[11px] text-stone-500">{isGujarati ? 'પાલડી, અમદાવાદ' : 'Paldi, Ahmedabad'}</p>
+                  </div>
+                  <span className="text-[10px] bg-kothmir-50 text-kothmir-800 font-bold px-2 py-0.5 rounded-full border border-kothmir-200">
+                    ✓ {isGujarati ? 'ચકાસાયેલ ગ્રાહક' : 'Verified'}
+                  </span>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </section>
 

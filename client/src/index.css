@@ -131,3 +131,26 @@
 .animate-pulse-slow {
   animation: pulseSlow 3s ease-in-out infinite;
 }
+
+/* Swiper Custom Pagination Bullets */
+.custom-bullet {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+.custom-bullet:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.15);
+}
+.custom-bullet-active {
+  width: 32px;
+  height: 10px;
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  border-radius: 9999px;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+}
