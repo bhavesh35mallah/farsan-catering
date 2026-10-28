@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: farsan-catering
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_NAME
+        value: Shreeji Admin
+      - key: ADMIN_EMAIL
+        value: admin@shreejifarsan.com
+      - key: ADMIN_PASSWORD
+        value: Admin@Farsan2026!
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SENDER_EMAIL
+        sync: false
+      - key: BUSINESS_NOTIFICATION_EMAIL
+        value: farsan-catering@yopmail.com

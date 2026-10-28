@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import path from 'path';
+import fs from 'fs';
 
 import authRoutes from './routes/authRoutes.js';
 import productRoutes from './routes/productRoutes.js';
@@ -63,6 +64,27 @@ app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/catering-enquiries', cateringRoutes);
 app.use('/api/settings', settingsRoutes);
+
+// Production Frontend Static Files (Single-service deployment on Render / Cloud)
+const possibleDistPaths = [
+  path.resolve('../client/dist'),
+  path.resolve('client/dist'),
+  path.join(process.cwd(), '..', 'client', 'dist'),
+  path.join(process.cwd(), 'client', 'dist'),
+];
+const clientDistPath = possibleDistPaths.find((p) => fs.existsSync(p));
+
+if (clientDistPath) {
+  app.use(express.static(clientDistPath));
+
+  // SPA fallback for client-side routing
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
+      return next();
+    }
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
+}
 
 // Error Handling
 app.use(notFoundHandler);
