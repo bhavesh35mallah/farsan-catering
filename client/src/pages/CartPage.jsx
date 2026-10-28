@@ -59,7 +59,7 @@ const CartPage = () => {
   }
 
   return (
-    <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 ${isGujarati ? 'font-gujarati' : ''}`}>
+    <div className={`w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 py-8 sm:py-12 ${isGujarati ? 'font-gujarati' : ''}`}>
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-stone-900">

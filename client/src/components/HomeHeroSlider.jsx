@@ -132,16 +132,16 @@ const HomeHeroSlider = () => {
             </div>
 
             {/* Slide Content */}
-            <div className="relative z-10 max-w-7xl mx-auto h-full px-5 sm:px-8 lg:px-12 flex flex-col justify-center">
-              <div className="max-w-2xl space-y-4 sm:space-y-5">
+            <div className="relative z-10 max-w-[1720px] mx-auto h-full px-6 sm:px-12 lg:px-16 flex flex-col justify-center">
+              <div className="max-w-3xl space-y-4 sm:space-y-6">
                 {/* Top Badge */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-saffron-500/20 backdrop-blur-md border border-saffron-400/40 text-amber-300 text-xs sm:text-sm font-extrabold shadow-sm">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-saffron-500/20 backdrop-blur-md border border-saffron-400/40 text-amber-300 text-xs sm:text-sm font-extrabold shadow-sm">
                   <Sparkles className="w-4 h-4 text-amber-400 animate-spin-slow shrink-0" />
                   <span>{isGujarati ? slide.badgeGu : slide.badgeEn}</span>
                 </div>
 
                 {/* Main Heading */}
-                <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.25] tracking-tight drop-shadow-md">
+                <h2 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-[1.2] tracking-tight drop-shadow-md">
                   {isGujarati ? slide.titleGu : slide.titleEn}
                 </h2>
 

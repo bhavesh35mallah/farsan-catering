@@ -99,7 +99,7 @@ const HomePage = () => {
   return (
     <div className={`space-y-12 sm:space-y-20 ${isGujarati ? 'font-gujarati' : ''}`}>
       {/* 1. Amazing Swiper Hero Showcase Slider */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
+      <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-3 sm:pt-6">
         <HomeHeroSlider />
 
         {/* 3 Responsive Trust Guarantee Cards */}
@@ -149,7 +149,7 @@ const HomePage = () => {
       </section>
 
       {/* 2. Categories Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
           <span className="text-xs font-bold uppercase tracking-wider text-saffron-700 bg-saffron-50 px-3.5 py-1 rounded-full border border-saffron-200">
             {isGujarati ? 'હાથે બનાવેલી વાનગીઓ' : 'Handcrafted Varieties'}
@@ -162,7 +162,7 @@ const HomePage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 sm:gap-5">
           {categories.map((cat) => (
             <Link
               key={cat._id}
@@ -189,7 +189,7 @@ const HomePage = () => {
       </section>
 
       {/* 3. Featured Products Grid with Interactive Filter Tabs */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-wider text-kothmir-800 bg-kothmir-50 px-3.5 py-1 rounded-full border border-kothmir-200">
@@ -212,13 +212,13 @@ const HomePage = () => {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-            {[1, 2, 3, 4].map((i) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+            {[1, 2, 3, 4, 5].map((i) => (
               <div key={i} className="bg-white rounded-3xl h-80 animate-pulse border border-cream-200"></div>
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
             {featuredProducts.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
@@ -228,7 +228,7 @@ const HomePage = () => {
 
       {/* 4. The Gujarati Purity & Heritage Promise */}
       <section className="bg-gradient-to-b from-cream-200/70 via-cream-100 to-cream-200/50 py-16 lg:py-20 border-y border-cream-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-extrabold uppercase tracking-wider text-saffron-700 bg-saffron-50 px-3.5 py-1 rounded-full border border-saffron-200">
               {isGujarati ? 'અમારો શુદ્ધતા સંકલ્પ' : 'Our Purity & Heritage Promise'}
@@ -306,7 +306,7 @@ const HomePage = () => {
       </section>
 
       {/* 5. How Ordering Works */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-extrabold uppercase tracking-wider text-kothmir-800 bg-kothmir-50 px-3.5 py-1 rounded-full border border-kothmir-200">
             {isGujarati ? 'સરળ ઓર્ડર પ્રક્રિયા' : 'Simple 3-Step Process'}
@@ -350,7 +350,7 @@ const HomePage = () => {
       </section>
 
       {/* Customer Testimonials from Gujarati Families */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-extrabold uppercase tracking-wider text-saffron-700 bg-saffron-50 px-3.5 py-1 rounded-full border border-saffron-200">
             {isGujarati ? 'ગ્રાહકોનો સાચો પ્રેમ' : 'Customer Reviews'}
@@ -468,7 +468,7 @@ const HomePage = () => {
       </section>
 
       {/* 6. Catering Promotional Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="rounded-3xl bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 text-white p-6 sm:p-10 lg:p-14 relative overflow-hidden shadow-2xl border border-stone-700">
           <div className="absolute top-0 right-0 w-80 h-80 bg-saffron-600/20 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -510,7 +510,7 @@ const HomePage = () => {
       </section>
 
       {/* 7. Frequently Asked Questions */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="text-center mb-8 sm:mb-10">
           <span className="text-xs font-extrabold uppercase tracking-wider text-saffron-700 bg-saffron-50 px-3.5 py-1 rounded-full border border-saffron-200">
             {isGujarati ? 'વારંવાર પૂછાતા પ્રશ્નો' : 'Got Questions?'}

@@ -156,7 +156,7 @@ const CateringPage = () => {
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-saffron-600/15 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-kothmir-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 relative z-10 text-center">
           <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-saffron-600/25 text-amber-300 text-xs font-extrabold uppercase tracking-wider border border-saffron-500/30 mb-4 shadow-sm">
             <ChefHat className="w-4 h-4 text-amber-300" /> {language === 'gu' ? 'અસલ ગુજરાતી કેટરિંગ અને બલ્ક ઓર્ડર સેવા' : 'Authentic Gujarati Catering & Bulk Orders'}
           </span>
@@ -178,7 +178,7 @@ const CateringPage = () => {
       </section>
 
       {/* Popular Sample Menus */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-extrabold uppercase tracking-wider text-saffron-700 bg-saffron-50 px-3.5 py-1 rounded-full border border-saffron-200">
             {language === 'gu' ? 'લોકપ્રિય પેકેજ' : 'Curated Packages'}
@@ -232,7 +232,7 @@ const CateringPage = () => {
       </section>
 
       {/* Catering Form Section */}
-      <section id="enquiry-form" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="enquiry-form" className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="bg-white rounded-3xl border border-cream-300 shadow-soft p-6 sm:p-10">
           {submitted ? (
             <div className="text-center py-8 space-y-4">

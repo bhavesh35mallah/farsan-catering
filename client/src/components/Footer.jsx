@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <footer className={`bg-stone-900 text-stone-300 pt-14 pb-10 border-t-4 border-saffron-600 ${isGujarati ? 'font-gujarati' : ''}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         {/* Value Highlights with glass dark treatment */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 pb-12 border-b border-stone-800">
           <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-stone-800/60 border border-stone-700/50">

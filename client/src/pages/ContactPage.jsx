@@ -25,7 +25,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12">
+    <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 py-10 sm:py-16 space-y-12">
       <div className="text-center max-w-2xl mx-auto">
         <span className="text-xs font-bold uppercase tracking-wider text-saffron-700 bg-saffron-50 px-3 py-1 rounded-full border border-saffron-200">
           {language === 'gu' ? 'અમારો સંપર્ક કરો' : 'Get In Touch'}

@@ -23,7 +23,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-cream-300 shadow-sm transition-all">
       {/* Top Notice Bar */}
       <div className="bg-gradient-to-r from-saffron-700 via-saffron-600 to-amber-600 text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-6 font-medium">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+        <div className="w-full max-w-[1720px] mx-auto flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5 truncate">
             <Sparkles className="w-3.5 h-3.5 text-amber-200 shrink-0 animate-pulse" />
             <span className="truncate">
@@ -46,7 +46,7 @@ const Navbar = () => {
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-2">
           {/* Logo & Brand */}
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
